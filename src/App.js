@@ -1,14 +1,14 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-import Location from "./Location";
+import Location from "./components/Location";
 
 function App() {
 
   const apiKey = '48afb245d0fe10f13555b750e33fb5ba';
 
   const [search, setSearch] = useState("");
-  const [location, setLocation] = useState();
+  const [location, setLocation] = useState(null);
 
   useEffect(() => {
     async function getUser() {
@@ -23,12 +23,19 @@ function App() {
     getUser();
   }, [search]);
 
+  // const resetHandle = () => {
+  //   setSearch("")
+
+  // }
+
   return (
-    <div className="min-w-full min-h-screen flex justify-center">
-      <div className="">
-        <input onChange={(e) => setSearch(e.target.value)} placeholder="Konumunuzu girin..." type="text" className="px-3 py-3 text-slate-800 border-0 shadow rounded placeholder-blue-400 w-[250px]"/>
-        {location && <Location location={location} />}
+    <div className="min-w-full min-h-screen flex flex-col items-start justify-end bg-[url('./images/lake.jpg')] bg-cover">
+      <div className="mb-2 ml-2">
+        <input onChange={(e) => setSearch(e.target.value)} placeholder="Konumunuzu girin..." type="text" className="mb-56 px-3 py-3 text-pink-700 bg-pink-300 border-0 shadow rounded placeholder-pink-700 w-[250px] outline-none"/>
+        {location && <Location placeholder='--' location={location} />}
+        {/* <button type="button" onClick={resetHandle}>Sıfırla</button> */}
       </div>
+      <div class='absolute bottom-0 w-full h-2/6 bg-black opacity-50'></div>
     </div>
   );
 }
