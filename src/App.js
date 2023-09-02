@@ -23,18 +23,12 @@ function App() {
     getUser();
   }, [search]);
 
-  // const resetHandle = () => {
-  //   setSearch("")
-
-  // }
-
   return (
     <div className="min-w-full min-h-screen flex flex-col items-start justify-end bg-[url('./images/lake.jpg')] bg-cover">
-      <div className="mb-2 ml-2">
-        <input onChange={(e) => setSearch(e.target.value)} placeholder="Konumunuzu girin..." type="text" className="mb-56 px-3 py-3 text-pink-700 bg-pink-300 border-0 shadow rounded placeholder-pink-700 w-[250px] outline-none"/>
-        {location && <Location placeholder='--' location={location} />}
-        {/* <button type="button" onClick={resetHandle}>Sıfırla</button> */}
+      <div>
+        <input onChange={(e) => setSearch(e.target.value)} placeholder="Konum girin..." type="text" className="mb-60 ml-2 px-3 py-3 text-green-700 bg-green-300 border-0 shadow rounded placeholder-green-700 w-[250px] outline-none"/>
       </div>
+      {location && <Location location={location} />}
       <div class='absolute bottom-0 w-full h-2/6 bg-black opacity-50'></div>
     </div>
   );
